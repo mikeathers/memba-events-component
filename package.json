@@ -2,7 +2,7 @@
   "name": "memba-events-component",
   "version": "0.1.0",
   "bin": {
-    "memba-events-component": "bin/memba-events-component.js"
+    "memba-events-component": "src/memba-events-component.js"
   },
   "scripts": {
     "build": "tsc",

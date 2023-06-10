@@ -9,3 +9,5 @@ global.beforeEach(() => {
   console.warn = throwError
   console.error = throwError
 })
+
+export {}
