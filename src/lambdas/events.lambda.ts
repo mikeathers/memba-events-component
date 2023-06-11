@@ -61,15 +61,25 @@ export class EventsLambda {
 
     table.grantReadWriteData(eventsLambda)
 
-    const rule = new Rule(scope, 'AccountRule', {
-      eventBus: eventBus,
+    const accountRule = new Rule(scope, 'AccountRule', {
+      eventBus,
       eventPattern: {
         source: ['Account'],
         detailType: ['Create', 'Update', 'Delete'],
       },
     })
 
-    rule.addTarget(new LambdaFunction(eventsLambda))
+    const tenantRule = new Rule(scope, 'TenantRule', {
+      eventBus,
+      eventPattern: {
+        source: ['Tenant'],
+        detailType: ['Create', 'Update', 'Delete'],
+      },
+    })
+
+    const eventsLambdaFunction = new LambdaFunction(eventsLambda)
+    accountRule.addTarget(eventsLambdaFunction)
+    tenantRule.addTarget(eventsLambdaFunction)
 
     return eventsLambda
   }
