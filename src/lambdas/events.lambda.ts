@@ -64,7 +64,7 @@ export class EventsLambda {
     const accountRule = new Rule(scope, 'AccountRule', {
       eventBus,
       eventPattern: {
-        source: ['Account'],
+        source: ['AccountEventLog'],
         detailType: ['Create', 'Update', 'Delete'],
       },
     })
@@ -72,7 +72,7 @@ export class EventsLambda {
     const tenantRule = new Rule(scope, 'TenantRule', {
       eventBus,
       eventPattern: {
-        source: ['Tenant'],
+        source: ['TenantEventLog'],
         detailType: ['Create', 'Update', 'Delete'],
       },
     })

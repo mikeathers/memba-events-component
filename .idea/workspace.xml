@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="23ffa3b5-4cbb-491d-8998-c40b9fc9b5b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lambdas/events.lambda.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lambdas/events.lambda.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.tsbuildinfo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +54,8 @@
       <workItem from="1686492396544" duration="167000" />
       <workItem from="1686492720373" duration="21000" />
       <workItem from="1686493443175" duration="2269000" />
+      <workItem from="1686495745970" duration="117000" />
+      <workItem from="1686496387067" duration="2311000" />
     </task>
     <servers />
   </component>
