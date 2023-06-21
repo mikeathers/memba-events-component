@@ -18,22 +18,17 @@ export class MembaEventsComponentStack extends Stack {
     const prodEventBusArn = `arn:aws:events:${CONFIG.REGION}:${CONFIG.AWS_ACCOUNT_ID_PROD}:event-bus/${CONFIG.SHARED_EVENT_BUS_NAME}-${stage}`
     const eventBusArn = stage === 'prod' ? prodEventBusArn : devEventBusArn
 
-    const database = new Databases(
-      this,
-      `${CONFIG.STACK_PREFIX}Databases-${stage}`,
-      stage,
-    )
+    const database = new Databases(this, `${CONFIG.STACK_PREFIX}Databases`)
 
-    const deadLetterQueue = new Queue(this, `${CONFIG.STACK_PREFIX}EventsDLQ-${stage}`, {
+    const deadLetterQueue = new Queue(this, `${CONFIG.STACK_PREFIX}-DLQ`, {
       retentionPeriod: Duration.days(7),
-      queueName: `${CONFIG.STACK_PREFIX}DLQ-${stage}`,
+      queueName: `${CONFIG.STACK_PREFIX}-DLQ`,
     })
 
     const eventBus = EventBus.fromEventBusArn(this, `SharedEventBus`, eventBusArn)
 
     new EventsLambda({
       scope: this,
-      stage,
       eventBus,
       deadLetterQueue,
       table: database.eventsTable,

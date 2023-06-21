@@ -13,7 +13,6 @@ import {LambdaFunction} from 'aws-cdk-lib/aws-events-targets'
 interface EventsLambdaProps {
   scope: Construct
   table: ITable
-  stage: string
   eventBus: IEventBus
   deadLetterQueue: IQueue
 }
@@ -26,8 +25,8 @@ export class EventsLambda {
   }
 
   private createEventsLambda(props: EventsLambdaProps): NodejsFunction {
-    const {scope, stage, table, eventBus, deadLetterQueue} = props
-    const lambdaName = `${CONFIG.STACK_PREFIX}EventsLambda-${stage}`
+    const {scope, table, eventBus, deadLetterQueue} = props
+    const lambdaName = `${CONFIG.STACK_PREFIX}Lambda`
 
     const handleProps: NodejsFunctionProps = {
       functionName: lambdaName,

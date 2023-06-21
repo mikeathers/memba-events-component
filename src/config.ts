@@ -11,7 +11,7 @@ interface ConfigProps {
 }
 
 const CONFIG: ConfigProps = {
-  STACK_PREFIX: 'MembaEvents',
+  STACK_PREFIX: 'Events',
   REGION: 'eu-west-2',
   AWS_ACCOUNT_ID_PROD: '635800996936',
   AWS_ACCOUNT_ID_DEV: '544312030237',
@@ -19,7 +19,7 @@ const CONFIG: ConfigProps = {
   DEV_DOMAIN_NAME: 'dev.memba.co.uk',
   API_URL: 'events.memba.co.uk',
   DEV_API_URL: 'events.dev.memba.co.uk',
-  SHARED_EVENT_BUS_NAME: 'MembaEventBus',
+  SHARED_EVENT_BUS_NAME: 'SharedEventBus',
 }
 
 export default CONFIG

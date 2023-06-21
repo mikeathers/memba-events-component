@@ -6,15 +6,15 @@ import {RemovalPolicy} from 'aws-cdk-lib'
 export class Databases extends Construct {
   public readonly eventsTable: ITable
 
-  constructor(scope: Construct, id: string, stage: string) {
+  constructor(scope: Construct, id: string) {
     super(scope, id)
 
-    this.eventsTable = this.createEventsTable({scope: this, stage})
+    this.eventsTable = this.createEventsTable({scope: this})
   }
 
-  private createEventsTable(props: {stage: string; scope: Construct}) {
-    const {scope, stage} = props
-    const tableName = `${CONFIG.STACK_PREFIX}-${stage}`
+  private createEventsTable(props: {scope: Construct}) {
+    const {scope} = props
+    const tableName = `${CONFIG.STACK_PREFIX}`
 
     const eventsTable = new Table(scope, tableName, {
       partitionKey: {
