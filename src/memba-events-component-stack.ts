@@ -14,8 +14,8 @@ export class MembaEventsComponentStack extends Stack {
     super(scope, id, props)
     const {stage} = props
 
-    const devEventBusArn = `arn:aws:events:${CONFIG.REGION}:${CONFIG.AWS_ACCOUNT_ID_DEV}:event-bus/${CONFIG.SHARED_EVENT_BUS_NAME}-${stage}`
-    const prodEventBusArn = `arn:aws:events:${CONFIG.REGION}:${CONFIG.AWS_ACCOUNT_ID_PROD}:event-bus/${CONFIG.SHARED_EVENT_BUS_NAME}-${stage}`
+    const devEventBusArn = `arn:aws:events:${CONFIG.REGION}:${CONFIG.AWS_ACCOUNT_ID_DEV}:event-bus/${CONFIG.SHARED_EVENT_BUS_NAME}`
+    const prodEventBusArn = `arn:aws:events:${CONFIG.REGION}:${CONFIG.AWS_ACCOUNT_ID_PROD}:event-bus/${CONFIG.SHARED_EVENT_BUS_NAME}`
     const eventBusArn = stage === 'prod' ? prodEventBusArn : devEventBusArn
 
     const database = new Databases(this, `${CONFIG.STACK_PREFIX}Databases`)
