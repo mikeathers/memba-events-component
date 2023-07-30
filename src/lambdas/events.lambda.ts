@@ -84,10 +84,19 @@ export class EventsLambda {
       },
     })
 
+    const tenantAppRule = new Rule(scope, 'TenantAppRule', {
+      eventBus,
+      eventPattern: {
+        source: ['GymAppEventLog'],
+        detailType: ['Create', 'Update', 'Delete'],
+      },
+    })
+
     const eventsLambdaFunction = new LambdaFunction(eventsLambda)
     accountRule.addTarget(eventsLambdaFunction)
     tenantRule.addTarget(eventsLambdaFunction)
     tenantAccountRule.addTarget(eventsLambdaFunction)
+    tenantAppRule.addTarget(eventsLambdaFunction)
 
     return eventsLambda
   }
